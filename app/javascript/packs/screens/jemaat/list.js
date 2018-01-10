@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Table } from 'antd';
+import { Table, Button } from 'antd';
 import axios from 'packs/lib/axiosWrapped'
+import { NavLink } from 'react-router-dom'
 
 export default class ListJemaat extends Component
 {
@@ -17,7 +18,7 @@ export default class ListJemaat extends Component
       jemaat: []
     }
   }
-  showLoadingTable(show) 
+  showLoadingTable(show)
   {
     this.setState({ tableSettings: { loading: show }})
   }
@@ -36,6 +37,9 @@ export default class ListJemaat extends Component
       title: 'Nama',
       dataIndex: 'name',
       key: 'name',
+      render: (text, record) => (
+        <NavLink to={`jemaat/${record.id}`}>{text}</NavLink>
+      )
     }, {
       title: 'Tempat Lahir',
       dataIndex: 'place_of_birth',
@@ -51,8 +55,14 @@ export default class ListJemaat extends Component
     }];
 
     return (
-      <Table rowKey="id" 
-        dataSource={this.state.jemaat} columns={columns} {...this.state.tableSettings} />
+      <div>
+        <NavLink to="/jemaat/create">
+          <Button type="primary" icon="user-add">Tambah Data Jemaat</Button>
+        </NavLink>
+        <br />
+        <Table rowKey="id"
+          dataSource={this.state.jemaat} columns={columns} {...this.state.tableSettings} />
+      </div>
     )
   }
 }

@@ -14,7 +14,7 @@ export default class ListSNK extends Component
       }
     }
   }
-  showLoadingTable(show) 
+  showLoadingTable(show)
   {
     this.setState({ tableSettings: { loading: show }})
   }
@@ -22,7 +22,7 @@ export default class ListSNK extends Component
   {
     this.showLoadingTable(true)
     axios.get(window.Routes.diaken_index_path()).then(x => {
-      // this.setState( { jemaat: x.data.entries })
+      this.setState( { snk: x.data.entries })
       console.log(x.data.entries)
       this.showLoadingTable(false)
     }).catch(err => {
@@ -32,23 +32,15 @@ export default class ListSNK extends Component
   render() {
     const columns = [{
       title: 'Nama',
-      dataIndex: 'name',
+      dataIndex: 'congregation.name',
       key: 'name',
     }, {
-      title: 'Tempat Lahir',
-      dataIndex: 'place_of_birth',
-      key: 'place_of_birth',
-    }, {
-      title: 'Tanggal Lahir',
-      dataIndex: 'date_of_birth',
-      key: 'date_of_birth',
-    }, {
-      title: 'Jenis Kelamin',
-      dataIndex: 'gender',
-      key: 'gender'
+      title: 'Lingkungan',
+      dataIndex: 'lingkungan',
+      key: 'lingkungan',
     }];
     return (
-      <Table rowKey="id" 
+      <Table rowKey="id"
         dataSource={this.state.snk} columns={columns} {...this.state.tableSettings} />
     )
   }

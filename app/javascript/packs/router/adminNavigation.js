@@ -1,6 +1,7 @@
 import ListJemaat from 'packs/screens/jemaat/list'
+import CreateJemaat from 'packs/screens/jemaat/create'
+import ShowJemaat from 'packs/screens/jemaat/show'
 import ListSNK from 'packs/screens/diaken/listSnk'
-
 
 const ListJemaatNav = {
   ListJemaat: {
@@ -16,9 +17,25 @@ const ListSNKNav = {
   }
 }
 
+const CreateJemaatNav = {
+  CreateJemaat: {
+    path: '/jemaat/create',
+    component: CreateJemaat
+  }
+}
+
+const ShowJemaatNav = {
+  ShowJemaat: {
+    path: '/jemaat/:id',
+    component: ShowJemaat,
+  }
+}
+
 const AdminNavCollected = {
   ...ListJemaatNav,
-  ...ListSNKNav
+  ...ListSNKNav,
+  ...CreateJemaatNav,
+  ...ShowJemaatNav,
 }
 
 export default AdminNavCollected
