@@ -24,7 +24,6 @@ export default class ShowJemaat extends Component
 
     const congregationId = match.params.id
     axios.get(window.Routes.congregation_path({id: congregationId})).then( x=> {
-      console.log(x)
       this.setState({ congregation: x.data, isParsed: true })
     })
 

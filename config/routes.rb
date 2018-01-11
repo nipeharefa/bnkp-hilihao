@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :admin
 
   scope '/api', module: 'api', format: :json do
-    resources :congregation, :education, :diaken
+    resources :congregation, :education, :diaken, :baptism
   end
 end

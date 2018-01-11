@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180107180651) do
+ActiveRecord::Schema.define(version: 20180111053646) do
+
+  create_table "baptisms", force: :cascade do |t|
+    t.string "baptism_number"
+    t.date "baptism_at"
+    t.string "pastor"
+    t.string "church_name"
+    t.integer "congregation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["congregation_id"], name: "index_baptisms_on_congregation_id"
+  end
 
   create_table "congregations", force: :cascade do |t|
     t.string "name"

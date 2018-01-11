@@ -12,7 +12,7 @@ export default class ListJemaat extends Component
       tableSettings: {
         loading: false,
         pagination: {
-          pageSize: 25,
+          pageSize: 50,
         }
       },
       jemaat: []
@@ -26,7 +26,6 @@ export default class ListJemaat extends Component
     this.showLoadingTable(true)
     axios.get(window.Routes.congregation_index_path()).then(x => {
       this.setState( { jemaat: x.data.entries })
-      console.log(x.data.entries)
       this.showLoadingTable(false)
     }).catch(err => {
       this.showLoadingTable(false)
