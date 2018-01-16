@@ -5,6 +5,9 @@ import asyncComponent from 'packs/lib/asyncComponent'
 const BasicDisplay = asyncComponent(() =>
   System.import('packs/components/_congregation/BasicDisplay').then(module => module.default)
 )
+const Baptism = asyncComponent(() =>
+  System.import('packs/components/_congregation/Baptis').then(module => module.default)
+)
 
 export default class CongregationProfile extends Component
 {
@@ -35,6 +38,7 @@ export default class CongregationProfile extends Component
         <Row gutter={8}>
           <p>Informasi Baptis</p>
           <hr />
+          <Baptism baptism={congregation.baptism}/>
         </Row>
         <Row gutter={8}>
           <p>Informasi Sidi</p>
