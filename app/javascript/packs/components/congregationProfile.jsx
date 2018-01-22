@@ -36,7 +36,7 @@ export default class CongregationProfile extends Component
           </Col>
         </Row>
         <Row gutter={8}>
-          <p>Informasi Baptis</p>
+          <p id="baptis">Informasi Baptis</p>
           <hr />
           <Baptism baptism={congregation.baptism}/>
         </Row>

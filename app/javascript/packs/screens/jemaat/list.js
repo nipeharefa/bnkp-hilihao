@@ -32,6 +32,10 @@ export default class ListJemaat extends Component
     })
   }
   render() {
+    const renderContent = (value, row, index) => {
+      return 1;
+    };
+
     const columns = [{
       title: 'Nama',
       dataIndex: 'name',
@@ -47,6 +51,7 @@ export default class ListJemaat extends Component
       title: 'Tanggal Lahir',
       dataIndex: 'date_of_birth',
       key: 'date_of_birth',
+      render: renderContent
     }, {
       title: 'Jenis Kelamin',
       dataIndex: 'gender',

@@ -27,3 +27,11 @@
 
 # public
 public/assets
+
+# Ignore encrypted secrets key file.
+config/secrets.yml.key
+
+# Capistrano
+Capfile
+config/deploy/
+config/deploy.rb
