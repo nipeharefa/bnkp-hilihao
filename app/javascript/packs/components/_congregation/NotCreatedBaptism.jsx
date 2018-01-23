@@ -5,8 +5,9 @@ export default class NotCreatedBaptism extends Component
 {
   render() {
     return (
-      <div>
-        <Button type="primary" icon="user-add">Tambah Data Baptis</Button>
+      <div className="baptis-no-created">
+        <h3>Belum tersedia untuk jemaat ini.</h3>
+        <Button type="primary" icon="file-add" size="small">Tambah</Button>
       </div>
     )
   }
