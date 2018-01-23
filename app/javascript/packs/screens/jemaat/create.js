@@ -63,7 +63,7 @@ class CreateNewJemaat extends Component
           </FormItem>
           {/* Date of Birth */}
           <FormItem
-            label="DatePicker">
+            label="Tanggal Lahir">
             {getFieldDecorator('date_of_birth', config)(
               <DatePicker />
             )}
