@@ -5,6 +5,9 @@ import asyncComponent from 'packs/lib/asyncComponent'
 const BasicDisplay = asyncComponent(() =>
   System.import('packs/components/_congregation/BasicDisplay').then(module => module.default)
 )
+const NotCreatedBaptis = asyncComponent(() => 
+  System.import('packs/components/_congregation/NotCreatedBaptism').then(module => module.default)
+)
 const Baptism = asyncComponent(() =>
   System.import('packs/components/_congregation/Baptis').then(module => module.default)
 )
@@ -15,8 +18,19 @@ export default class CongregationProfile extends Component
     super(props)
   }
   render() {
+    // get congregtion props
     const { congregation } = this.props
+    // get place and date of birth
     const birth = `${congregation.place_of_birth}, ${congregation.date_of_birth}`
+    // conditional baptis if null
+    const BaptismContainer = (props) => {
+      const { baptism } = props;
+      if (null === baptism) {
+        // retur component to creted baptis data
+        return <NotCreatedBaptis />;
+      }
+      return <Baptism baptism={congregation.baptism}/>;
+    }
     return (
       <div>
         <Row gutter={8}>
@@ -38,7 +52,7 @@ export default class CongregationProfile extends Component
         <Row gutter={8}>
           <p id="baptis">Informasi Baptis</p>
           <hr />
-          <Baptism baptism={congregation.baptism}/>
+          <BaptismContainer baptism={congregation.baptism}/>
         </Row>
         <Row gutter={8}>
           <p>Informasi Sidi</p>
