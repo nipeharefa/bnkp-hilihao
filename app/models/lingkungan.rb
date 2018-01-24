@@ -1,0 +1,2 @@
+class Lingkungan < ApplicationRecord
+end
