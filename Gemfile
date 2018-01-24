@@ -52,4 +52,4 @@ gem 'friendly_id', '~> 5.1.0'
 gem "js-routes"
 gem 'kaminari'
 gem 'kaminari-activerecord'
-gem 'pg', '~> 1.0'
+gem 'pg', '~> 0.21.0'
