@@ -12,4 +12,16 @@ services:
       POSTGRES_USER: bnkp-hilihao
       POSTGRES_PASSWORD: password
       DOMAIN_1: bnkp-hilihao.test|/usr/src/app|rails
-    
+    links:
+      - "postgresql:database-host"
+  postgresql:
+    image: "postgres:9.4"
+    container_name: hilihao-rails-postgresql
+    ports:
+      - "5433:5432"
+    volumes:
+      - "./var/docker/volumes/postgresql:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_USER: hilihao
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: hilihao

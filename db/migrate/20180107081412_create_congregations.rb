@@ -1,6 +1,7 @@
 class CreateCongregations < ActiveRecord::Migration[5.1]
   def change
     create_table :congregations do |t|
+      t.integer :lingkungan_id, null: true
       t.string :name
       t.string :uuid
       t.string :place_of_birth
