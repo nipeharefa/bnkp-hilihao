@@ -38,3 +38,6 @@ config/deploy.rb
 
 db/schema.rb
 config/database.yml
+
+# Docker
+var/docker
