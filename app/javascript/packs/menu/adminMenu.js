@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import { Menu, Icon } from 'antd'
-import { NavLink } from 'react-router-dom'
-const { SubMenu } = Menu
+import React, { Component } from 'react';
+import { Menu, Icon } from 'antd';
+import { NavLink } from 'react-router-dom';
 
-export default class DefaultMenu extends Component
-{
+const { SubMenu } = Menu;
+
+export default class DefaultMenu extends Component {
   render() {
     return (
       <Menu theme="dark" mode="inline">
@@ -29,6 +29,6 @@ export default class DefaultMenu extends Component
         </SubMenu>
 
       </Menu>
-    )
+    );
   }
 }

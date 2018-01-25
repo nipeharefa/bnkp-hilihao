@@ -2,18 +2,36 @@ import React, { Component } from 'react'
 import axios from 'packs/lib/axiosWrapped'
 import {
   Form, Icon, Input, Button, DatePicker, Radio,
-  Spin
+  Spin, Select
 } from 'antd'
 const FormItem = Form.Item
 // const { Group as RadioGroup, RadioButton } = Radio
 const RadioGroup = Radio.Group
 const RadioButton = Radio.Button
+const Option = Select.Option
 
 class CreateNewJemaat extends Component
 {
   constructor(props)
   {
     super(props)
+    this.state = {
+      lingkungan: []
+    }
+    this.handleNumberChange = this.handleNumberChange.bind(this)
+  }
+  componentDidMount() {
+    this.getDataLingkungan()
+  }
+  getDataLingkungan()
+  {
+    console.log('getdata')
+  }
+  handleNumberChange(value) {
+    console.log('asdklasjdlksdjk')
+    this.props.form.setFieldsValue({
+      lingkungan: value
+    })
   }
   handlePostData(data)
   {
@@ -41,20 +59,36 @@ class CreateNewJemaat extends Component
     const config = {
       rules: [{ type: 'object', required: true, message: 'Mohon isi tanggal lahir!' }],
     };
+    const lingkunganConfig = {
+      rules: [{ required: true, message: 'Pilih lingkungan!' }],
+    };
     const genderConfig = {
       rules: [{ required: true, message: 'Pilih salah satu!'}]
     }
     return (
       <div>
         <Form onSubmit={this.handleSubmit}>
-          <FormItem>
+          <FormItem
+            label="Nama Lengkap">
             {getFieldDecorator('name', {
               rules: [{ required: true, message: 'Masukkan nama !' }],
             })(
               <Input placeholder="Nama Jemaat" />
             )}
           </FormItem>
-          <FormItem>
+          {/* Lingkungan select */}
+          <FormItem 
+            label="Lingkungan">
+            {getFieldDecorator('lingkungan', lingkunganConfig)(
+              <Select placeholder="Pilih lingkungan"
+                onChange={this.handleNumberChange}>
+                <Option value="1">1</Option>
+                <Option value="2">2</Option>
+              </Select>
+            )}
+          </FormItem>
+          {/* Place of birth */}
+          <FormItem label="Tempat Lahir">
             {getFieldDecorator('place_of_birth', {
               rules: [{ required: true, message: 'Masukkan Tempat Lahir !' }],
             })(
