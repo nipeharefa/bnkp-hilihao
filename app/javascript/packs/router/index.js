@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import AdminDefaultLayout from 'packs/layouts/adminLayout';
+import AdminDefaultLayout from '../layouts/adminLayout';
 
 const routers = () => (
   <Switch>

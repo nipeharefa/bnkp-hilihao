@@ -18,7 +18,7 @@ class CreateNewJemaat extends Component {
   componentDidMount() {
     this.getDataLingkungan();
   }
-  getDataLingkungan = () => {
+  getDataLingkungan = (data) => {
     axios.get(window.Routes.lingkungan_index_path()).then((response) => {
       this.setState({ lingkungan: response.data.entries });
     });

@@ -3,23 +3,25 @@ import { Table, Button } from 'antd';
 import { NavLink } from 'react-router-dom';
 import axios from 'packs/lib/axiosWrapped';
 
-export default class ListJemaat extends Component {
+export default class ListLingkungan extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      lingkungan: [],
       tableSettings: {
         loading: false,
         pagination: {
           pageSize: 50,
         },
       },
-      jemaat: [],
     };
   }
   componentDidMount() {
-    this.showLoadingTable(true);
-    axios.get(window.Routes.congregation_index_path()).then((x) => {
-      this.setState({ jemaat: x.data.entries });
+    this.getLingkunganData();
+  }
+  getLingkunganData() {
+    axios.get(window.Routes.lingkungan_index_path()).then((x) => {
+      this.setState({ lingkungan: x.data.entries });
       this.showLoadingTable(false);
     }).catch(() => {
       this.showLoadingTable(false);
@@ -29,36 +31,32 @@ export default class ListJemaat extends Component {
     this.setState({ tableSettings: { loading: show } });
   }
   render() {
+    const renderContent = (value, row, index) => {
+      const obj = {
+        children: `Lingkungan-${value}`,
+        props: {},
+      };
+      return obj;
+    };
     const columns = [{
       title: 'Nama',
       dataIndex: 'name',
       key: 'name',
-      render: (text, record) => (
-        <NavLink to={`jemaat/${record.id}`}>{text}</NavLink>
-      ),
+      render: renderContent,
     }, {
-      title: 'Tempat Lahir',
-      dataIndex: 'place_of_birth',
-      key: 'place_of_birth',
-    }, {
-      title: 'Tanggal Lahir',
-      dataIndex: 'date_of_birth',
-      key: 'date_of_birth',
-    }, {
-      title: 'Jenis Kelamin',
-      dataIndex: 'gender',
-      key: 'gender',
+      title: 'Lingkungan Gabungan',
+      dataIndex: 'gabungan',
+      key: 'gabungan',
     }];
-
     return (
       <div>
-        <NavLink to="/jemaat/create">
-          <Button type="primary" icon="user-add">Tambah Data Jemaat</Button>
+        <NavLink to="/lingkungan/create">
+          <Button type="primary" icon="user-add">Tambah Data Lingkungan</Button>
         </NavLink>
         <br />
         <Table
           rowKey="id"
-          dataSource={this.state.jemaat}
+          dataSource={this.state.lingkungan}
           columns={columns}
           {...this.state.tableSettings}
         />

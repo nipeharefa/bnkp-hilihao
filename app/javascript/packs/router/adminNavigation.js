@@ -1,7 +1,9 @@
-import ListJemaat from 'packs/screens/jemaat/list';
-import CreateJemaat from 'packs/screens/jemaat/create';
-import ShowJemaat from 'packs/screens/jemaat/show';
-import ListSNK from 'packs/screens/diaken/listSnk';
+import ListJemaat from '../screens/jemaat/list';
+import CreateJemaat from '../screens/jemaat/create';
+import ShowJemaat from '../screens/jemaat/show';
+import ListSNK from '../screens/diaken/listSnk';
+import ListLingkungan from '../screens/lingkungan/list';
+import CreateLingkungan from '../screens/lingkungan/create';
 
 const ListJemaatNav = {
   ListJemaat: {
@@ -31,11 +33,29 @@ const ShowJemaatNav = {
   },
 };
 
+// Lingkungan
+const CreateLingkunganNav = {
+  CreateLingkungan: {
+    path: '/lingkungan/create',
+    component: CreateLingkungan,
+  },
+};
+const ListLingkunganNav = {
+  ListLingkungan: {
+    path: '/lingkungan',
+    component: ListLingkungan,
+  },
+};
+// Lingkungan Gabungan
+
 const AdminNavCollected = {
   ...ListJemaatNav,
   ...ListSNKNav,
   ...CreateJemaatNav,
   ...ShowJemaatNav,
+  // Lingkungan
+  ...CreateLingkunganNav,
+  ...ListLingkunganNav,
 };
 
 export default AdminNavCollected;

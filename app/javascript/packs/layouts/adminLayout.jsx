@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import AdminNav from 'packs/router/adminNavigation';
 import _ from 'lodash';
-import { Layout, Menu, Icon } from 'antd';
+import { Layout } from 'antd';
+import AdminNav from '../router/adminNavigation';
+import DefaultMenu from '../menu/adminMenu';
 
 const {
   Header, Content, Footer, Sider,
 } = Layout;
-import DefaultMenu from 'packs/menu/adminMenu';
 
 export default class AdminLayout extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
     const routes = _.map(AdminNav, (nav, index) => (
       <Route exact path={nav.path} component={(nav.component)} key={index} />
