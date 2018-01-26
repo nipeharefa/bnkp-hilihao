@@ -11,8 +11,11 @@ module Api
     def create
       @congregation = Congregation.new(congregation_params)
       @congregation.uuid = SecureRandom.uuid
-      @congregation.save
-      render "show"
+
+      if @congregation.save
+        return render "show"
+      end
+      render json: @congregation.errors, status: 400
     end
 
     private 
