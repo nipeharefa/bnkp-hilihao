@@ -12,7 +12,7 @@
     },
     "rules": {
         "react/forbid-prop-types": "off",
-        "react/prop-types": ["warn", "skipUndeclared"],
+        "react/prop-types": ["warn"],
         "no-unused-vars": "warn",
         "function-paren-newline": "off"
     },

@@ -9,10 +9,10 @@ module Api
     end
 
     def create
-        @congregation = Congregation.new(congregation_params)
-        @congregation.uuid = SecureRandom.uuid
-        @congregation.save
-        render "show"
+      @congregation = Congregation.new(congregation_params)
+      @congregation.uuid = SecureRandom.uuid
+      @congregation.save
+      render "show"
     end
 
     private 
@@ -21,7 +21,7 @@ module Api
     end
 
     def congregation_params
-        params[:congregation].permit('name', 'place_of_birth', 'date_of_birth', 'gender')
+        params[:congregation].permit('name', 'place_of_birth', 'date_of_birth', 'gender', :lingkungan_id)
     end
   end
 end

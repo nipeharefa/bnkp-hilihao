@@ -25,7 +25,7 @@ class CreateNewJemaat extends Component {
   }
   handleNumberChange = (value) => {
     this.props.form.setFieldsValue({
-      lingkungan: value,
+      lingkungan_id: value,
     });
   }
   handlePostData = (data) => {
@@ -65,13 +65,13 @@ class CreateNewJemaat extends Component {
         <Form onSubmit={this.handleSubmit}>
           {/* Nama Lengkap */}
           <FormItem label="Nama Lengkap">
-            {getFieldDecorator('namCreateJemaatForme', {
+            {getFieldDecorator('name', {
               rules: [{ required: true, message: 'Masukkan nama !' }],
             })(<Input placeholder="Nama Jemaat" />)}
           </FormItem>
           {/* Lingkungan select */}
           <FormItem label="Lingkungan">
-            {getFieldDecorator('lingkungan', lingkunganConfig)(
+            {getFieldDecorator('lingkungan_id', lingkunganConfig)(
               <Select
                 placeholder="Pilih lingkungan"
                 onChange={this.handleNumberChange}
@@ -92,7 +92,7 @@ class CreateNewJemaat extends Component {
           </FormItem>
           {/* Gender */}
           <FormItem label="Jenis Kelamin">
-            {getFieldDecorator('26-Januari-2018 02:43:00 WIBgender', genderConfig)(
+            {getFieldDecorator('gender', genderConfig)(
               <RadioGroup>
                 <Radio value="man">Pria</Radio>
                 <Radio value="woman">Wanita</Radio>
