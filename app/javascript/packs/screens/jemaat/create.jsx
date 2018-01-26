@@ -18,23 +18,23 @@ class CreateNewJemaat extends Component {
   componentDidMount() {
     this.getDataLingkungan();
   }
-  getDataLingkungan() {
+  getDataLingkungan = () => {
     axios.get(window.Routes.lingkungan_index_path()).then((response) => {
       this.setState({ lingkungan: response.data.entries });
     });
   }
-  handleNumberChange(value) {
+  handleNumberChange = (value) => {
     this.props.form.setFieldsValue({
       lingkungan: value,
     });
   }
-  handlePostData(data) {
+  handlePostData = (data) => {
     const { history } = this.props;
     axios.post(window.Routes.congregation_index_path(), data).then((x) => {
       history.push(`/jemaat/${x.data.id}`);
     }).catch(err => err);
   }
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
@@ -57,6 +57,9 @@ class CreateNewJemaat extends Component {
     const genderConfig = {
       rules: [{ required: true, message: 'Pilih salah satu!' }],
     };
+    const listLingkungan = this.state.lingkungan.map(item => (
+      <Option value={item.id} key={item.id}>{item.name}</Option>
+    ));
     return (
       <div>
         <Form onSubmit={this.handleSubmit}>
@@ -73,8 +76,7 @@ class CreateNewJemaat extends Component {
                 placeholder="Pilih lingkungan"
                 onChange={this.handleNumberChange}
               >
-                <Option value="1">1</Option>
-                <Option value="2">2</Option>
+                {listLingkungan}
               </Select>,
             )}
           </FormItem>
