@@ -1,0 +1,1 @@
+json.extract! gabungan, :id, :name

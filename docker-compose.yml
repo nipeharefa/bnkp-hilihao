@@ -3,6 +3,7 @@ services:
   app:
     container_name: 'bnkp-hilihao-app'
     build: .
+    privileged: true
     ports: 
       - "80:80"
     volumes:
@@ -14,6 +15,7 @@ services:
       DOMAIN_1: bnkp-hilihao.test|/usr/src/app|rails
     links:
       - "postgresql:database-host"
+      
   postgresql:
     image: "postgres:9.4"
     container_name: hilihao-rails-postgresql
