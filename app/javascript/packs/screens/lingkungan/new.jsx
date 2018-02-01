@@ -8,7 +8,7 @@ class CreateLingkungan extends Component {
   componentDidMount() {}
   handlePostData = (data) => {
     const { history } = this.props;
-    axios.post(window.Routes.lingkungan_index_path(), data).then((x) => {
+    axios.post(window.Routes.lingkungan_index_path(), data).then(() => {
       history.push('/lingkungan');
     }).catch(err => err);
   }

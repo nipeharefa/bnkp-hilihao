@@ -29,12 +29,12 @@ environment.loaders.append(
     use: [{
       loader: 'babel-loader',
       options: {
-        presets: ['env', 'react'],
+        presets: ['env', 'react', 'stage-2'],
         babelrc: false,
         plugins: [
           ['import', {
             libraryName: 'antd',
-            style: 'css'
+            style: 'css',
           }],
           'transform-decorators-legacy',
           "syntax-dynamic-import",

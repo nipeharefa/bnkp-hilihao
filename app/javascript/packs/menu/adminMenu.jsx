@@ -12,7 +12,7 @@ const AdminMenu = () => (
         <NavLink to="/lingkungan">Lingkungan</NavLink>
       </Menu.Item>
       <Menu.Item key="lingkungan-gabungn">
-        <NavLink to="/jemaat">Lingkungan Gabungan</NavLink>
+        <NavLink to="/lingkungan-gabungan">Lingkungan Gabungan</NavLink>
       </Menu.Item>
       <Menu.Item key="list-jemaat">
         <NavLink to="/jemaat">Jemaat</NavLink>

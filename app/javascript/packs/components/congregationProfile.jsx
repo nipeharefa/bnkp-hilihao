@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
-import { Row, Col } from 'antd'
-import asyncComponent from 'packs/lib/asyncComponent'
+import React, { Component } from 'react';
+import { Row, Col } from 'antd';
+import asyncComponent from 'packs/lib/asyncComponent';
 // import all partial
 const BasicDisplay = asyncComponent(() =>
   System.import('packs/components/_congregation/BasicDisplay').then(module => module.default)
-)
-const NotCreatedBaptis = asyncComponent(() => 
+);
+const NotCreatedBaptis = asyncComponent(() =>
   System.import('packs/components/_congregation/NotCreatedBaptism').then(module => module.default)
-)
+);
 const Baptism = asyncComponent(() =>
   System.import('packs/components/_congregation/Baptis').then(module => module.default)
 )
@@ -15,7 +15,7 @@ const Baptism = asyncComponent(() =>
 export default class CongregationProfile extends Component
 {
   constructor(props) {
-    super(props)
+    super(props);
   }
   render() {
     // get congregtion props
