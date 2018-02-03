@@ -23,7 +23,6 @@ export default class AdminLayout extends Component {
         <Sider
           breakpoint="lg"
           collapsedWidth="0"
-          onCollapse={(collapsed, type) => { console.log(collapsed, type); }}
         >
           <div className="logo" />
           <DefaultMenu />

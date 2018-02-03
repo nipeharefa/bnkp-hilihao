@@ -17,6 +17,12 @@ module.exports = {
     "import",
     "jsx-a11y"
   ],
+  "rules": {
+    "react/forbid-prop-types": "off",
+    "react/prop-types": ["warn"],
+    "no-unused-vars": "warn",
+    "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
+  },
   "settings": {
     "import/resolver": {
       "node": {

@@ -25,7 +25,7 @@ export default class ListGabungan extends Component {
 
     return (
       <div>
-        <NavLink to="/jemaat/create">
+        <NavLink to="/lingkungan-gabungan/create">
           <Button type="primary" icon="user-add">Tambah Data Lingkungan Gabungan</Button>
         </NavLink>
         <Table
