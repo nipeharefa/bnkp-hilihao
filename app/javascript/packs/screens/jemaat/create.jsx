@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'packs/lib/axiosWrapped';
-import { Form, Input, Button, DatePicker, Radio, Select } from 'antd';
+import { Form, Input, Button,
+  DatePicker, Radio, Select,
+  Row, Col,
+} from 'antd';
 
 const FormItem = Form.Item;
 // const { Group as RadioGroup, RadioButton } = Radio
@@ -51,6 +54,9 @@ class CreateNewJemaat extends Component {
     const config = {
       rules: [{ type: 'object', required: true, message: 'Mohon isi tanggal lahir!' }],
     };
+    const configDateofBaptism = {
+      rules: [{ type: 'object', required: true, message: 'Mohon isi tanggal baptis!' }],
+    };
     const lingkunganConfig = {
       rules: [{ required: true, message: 'Pilih lingkungan!' }],
     };
@@ -63,42 +69,64 @@ class CreateNewJemaat extends Component {
     return (
       <div>
         <Form onSubmit={this.handleSubmit}>
-          {/* Nama Lengkap */}
-          <FormItem label="Nama Lengkap">
-            {getFieldDecorator('name', {
-              rules: [{ required: true, message: 'Masukkan nama !' }],
-            })(<Input placeholder="Nama Jemaat" />)}
-          </FormItem>
-          {/* Lingkungan select */}
-          <FormItem label="Lingkungan">
-            {getFieldDecorator('lingkungan_id', lingkunganConfig)(
-              <Select
-                placeholder="Pilih lingkungan"
-                onChange={this.handleNumberChange}
-              >
-                {listLingkungan}
-              </Select>,
-            )}
-          </FormItem>
-          {/* Place of birth */}
-          <FormItem label="Tempat Lahir">
-            {getFieldDecorator('place_of_birth', {
-              rules: [{ required: true, message: 'Masukkan Tempat Lahir !' }],
-            })(<Input placeholder="Tempat Lahir" />)}
-          </FormItem>
-          {/* Date of Birth */}
-          <FormItem label="Tanggal Lahir">
-            {getFieldDecorator('date_of_birth', config)(<DatePicker />)}
-          </FormItem>
-          {/* Gender */}
-          <FormItem label="Jenis Kelamin">
-            {getFieldDecorator('gender', genderConfig)(
-              <RadioGroup>
-                <Radio value="man">Pria</Radio>
-                <Radio value="woman">Wanita</Radio>
-              </RadioGroup>,
-            )}
-          </FormItem>
+          <Row gutter={8}>
+            <Col span={8}>
+              {/* Nama Lengkap */}
+              <FormItem label="Nama Lengkap">
+                {getFieldDecorator('name', {
+                  rules: [{ required: true, message: 'Masukkan nama !' }],
+                })(<Input placeholder="Nama Jemaat" />)}
+              </FormItem>
+              {/* Lingkungan select */}
+            </Col>
+            <Col span={8}>
+              <FormItem label="Lingkungan">
+                {getFieldDecorator('lingkungan_id', lingkunganConfig)(
+                  <Select
+                    placeholder="Pilih lingkungan"
+                    onChange={this.handleNumberChange}
+                  >
+                    {listLingkungan}
+                  </Select>)}
+              </FormItem>
+            </Col>
+            <Col span={8}>
+              {/* Gender */}
+              <FormItem label="Jenis Kelamin">
+                {getFieldDecorator('gender', genderConfig)(
+                  <RadioGroup>
+                    <Radio value="man">Pria</Radio>
+                    <Radio value="woman">Wanita</Radio>
+                  </RadioGroup>)}
+              </FormItem>
+            </Col>
+          </Row>
+          <Row gutter={8}>
+            <Col span={8}>
+              {/* Place of birth */}
+              <FormItem label="Tempat Lahir">
+                {getFieldDecorator('place_of_birth', {
+                  rules: [{ required: true, message: 'Masukkan Tempat Lahir !' }],
+                })(<Input placeholder="Tempat Lahir" />)}
+              </FormItem>
+            </Col>
+            <Col span={8}>
+              {/* Date of Birth */}
+              <FormItem label="Tanggal Lahir">
+                {getFieldDecorator('date_of_birth', config)(<DatePicker />)}
+              </FormItem>
+            </Col>
+          </Row>
+          {/* Row Baptis */}
+          <Row gutter={8}>
+            <Col span={8}>
+              {/* Date of Birth */}
+              <FormItem label="Tanggal Baptis">
+                {getFieldDecorator('baptism.date', configDateofBaptism)(<DatePicker />)}
+              </FormItem>
+            </Col>
+          </Row>
+          {/* end of Row Baptis */}
           {/* Submit */}
           <FormItem>
             <Button type="primary" htmlType="submit" className="login-form-button">

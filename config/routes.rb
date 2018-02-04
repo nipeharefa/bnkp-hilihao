@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   get '/admin/(*id)', to: 'admin#index'
 
   scope '/api', module: 'api', format: :json do
-    resources :congregation, :education, :diaken, :baptism, :lingkungan
+    resources :congregation, :education, :diaken, :baptism, :lingkungan, :gabungan
   end
 end

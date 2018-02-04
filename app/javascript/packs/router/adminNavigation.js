@@ -28,6 +28,10 @@ const JemaatManagement = {
     path: '/jemaat/create/',
     component: CreateJemaat,
   },
+  showJemaat: {
+    path: '/jemaat/:id',
+    component: ShowJemaat,
+  },
 };
 
 const LingkunganManagement = {

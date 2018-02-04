@@ -34,7 +34,7 @@ export default class ListJemaat extends Component {
       dataIndex: 'name',
       key: 'name',
       render: (text, record) => (
-        <NavLink to={`jemaat/${record.id}`}>{text}</NavLink>
+        <NavLink to={`/jemaat/${record.id}`}>{text}</NavLink>
       ),
     }, {
       title: 'Tempat Lahir',

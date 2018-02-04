@@ -32,8 +32,8 @@ class CreateLingkungan extends Component {
           {/* Nama Lengkap */}
           <FormItem label="Nama Lengkap">
             {getFieldDecorator('name', {
-              rules: [{ required: true, message: 'Masukkan nama !' }],
-            })(<Input placeholder="Nama Jemaat" />)}
+              rules: [{ required: true, message: 'Masukkan nama lingkungan !' }],
+            })(<Input placeholder="Nama Lingkungan" />)}
           </FormItem>
           <FormItem>
             <Button type="primary" htmlType="submit" className="login-form-button">

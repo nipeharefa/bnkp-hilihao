@@ -24,7 +24,7 @@ module Api
     end
 
     def congregation_params
-        params[:congregation].permit('name', 'place_of_birth', 'date_of_birth', 'gender', :lingkungan_id)
+        params[:congregation].permit('name', 'place_of_birth', 'date_of_birth', 'gender', :lingkungan_id, :baptism)
     end
   end
 end
