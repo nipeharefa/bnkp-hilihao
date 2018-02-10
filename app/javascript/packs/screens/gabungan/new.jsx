@@ -16,7 +16,7 @@ class NewGabungan extends Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         const data = {
-          lingkungan: values,
+          gabungan: values,
         };
         this.handlePostData(data);
       }

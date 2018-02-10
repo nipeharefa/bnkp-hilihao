@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Table, Button } from 'antd';
 import { NavLink } from 'react-router-dom';
+import axios from 'packs/lib/axiosWrapped';
 
 export default class ListGabungan extends Component {
   constructor(props) {
@@ -15,7 +16,20 @@ export default class ListGabungan extends Component {
       gabungan: [],
     };
   }
-  componentDidMount() {}
+  componentDidMount() {
+    this.getGabunganData();
+  }
+  getGabunganData() {
+    axios.get(window.Routes.gabungan_index_path()).then((x) => {
+      this.setState({ gabungan: x.data.entries });
+      this.showLoadingTable(false);
+    }).catch(() => {
+      this.showLoadingTable(false);
+    });
+  }
+  showLoadingTable(show) {
+    this.setState({ tableSettings: { loading: show } });
+  }
   render() {
     const columns = [{
       title: 'Nama',

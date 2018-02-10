@@ -9,9 +9,9 @@
 references = Hash.new
 
 # Seeder Lingkungan
-20.times do |item|
+5.times do |item|
     lingkungan = Lingkungan.new
-    lingkungan.name = item
+    lingkungan.name = item + 1
     lingkungan.save
 end
 
